@@ -5,64 +5,32 @@ import os
 
 
 class Test:
-    # 婚博会APP    url  http
-    HUNBOHUI_BASE_URL_HTTP = 'http://open.test.jiehun.com.cn'
 
-    # 婚博会APP    url  https
-    HUNBOHUI_BASE_URL_HTTPS = 'https://open.test.jiehun.com.cn'
-
-    # 运营后台DMP   url
-    SSOHUNBOHUI_BASE_URL = 'http://sso.test.tthunbohui.com'
-
-    BOPSHUNBOHUI_BASE_URL = 'http://bops.test.tthunbohui.com'
-
-    # CRM后台地址
-    CRM_BASE_URL = 'http://crm.test.tthunbohui.com/'
-
-    # CRM后台api地址
-    CRM_BASE_URL_HTTP = 'http://crmapi.test.tthunbohui.com/'
-
-    # hunbbohui db，dmp_message库
-    HUNBOHUI_DATABASE = 'mysql+pymysql://root@test.dmp.mysqlm.jhops.club:3309/dmp_message?charset=utf8'
-
-    #MDP
-    MDP_BASE_URL = "http://mdp.test.zghbh.com/v2"
+    # data_mock
+    DATS_MOCK_HOST = "http://lvjunjie.cn:5000"
 
     class ACCOUNT:
-        DMP_TOP = '18111511257', '123456'
-        APP_USER = '15757166394', 'ty123456'
         CRM_USER = '18000000000', '123456'
-        User_Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+
+
+class Beta:
+
+    # data_mock
+    DATS_MOCK_HOST = "http://lvjunjie.cn:5000"
+
+    class ACCOUNT:
+        CRM_USER = '18000000000', '123456'
 
 
 class Online:
 
-    # 婚博会APP    url  http
-    HUNBOHUI_BASE_URL_HTTP = 'http://open.jiehun.com.cn'
-
-    # 婚博会APP    url  https
-    HUNBOHUI_BASE_URL_HTTPS = 'https://open.jiehun.com.cn'
-
-    # 运营后台DMP   url
-    SSOHUNBOHUI_BASE_URL = 'http://sso.tthunbohui.com'
-
-    BOPSHUNBOHUI_BASE_URL = 'http://bops.tthunbohui.com'
-
-    # CRM后台地址
-    CRM_BASE_URL = 'http://crm.tthunbohui.com/'
-
-    # CRM后台api地址
-    CRM_BASE_URL_HTTP = 'http://crmapi.tthunbohui.com/'
-
-    # hunbbohui db，dmp_message库
-    HUNBOHUI_DATABASE = 'mysql+pymysql://root@test.dmp.mysqlm.jhops.club:3309/dmp_message?charset=utf8'
-
+    # data_mock
+    DATS_MOCK_HOST = "http://lvjunjie.cn:5000"
 
     class ACCOUNT:
-        DMP_TOP = '18111511257', '123456'
-        APP_USER = '15757166394', 'ty123456'
         CRM_USER = '18000000000', '123456'
-        User_Agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36'
+
+
 
 
 CONFIG = Test

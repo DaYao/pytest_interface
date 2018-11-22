@@ -3,10 +3,7 @@ from functools import wraps
 from jinja2 import Template
 from copy import deepcopy
 from collections import OrderedDict
-from common.log_save import LogSave
-import logging
-import time
-import os
+
 try:
     from urlparse import urljoin
 except ImportError:
