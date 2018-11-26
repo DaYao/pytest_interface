@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de5ad48f-3546-4826-981a-a3932dbb317a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/data/data_count/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/data_count/data_count.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,7 +51,7 @@
     <SUITE FILE_PATH="coverage/pytest_hbh$py_test_for_test_login_dmp_TestLogin.coverage" NAME="py.test for test_login_dmp.TestLogin Coverage Results" MODIFIED="1540804804611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_dmp" />
     <SUITE FILE_PATH="coverage/pytest_hbh$generate_script.coverage" NAME="generate_script Coverage Results" MODIFIED="1542699113719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/script" />
     <SUITE FILE_PATH="coverage/pytest_hbh$result_processing.coverage" NAME="result_processing Coverage Results" MODIFIED="1542612807562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
-    <SUITE FILE_PATH="coverage/pytest_interface$py_test_for_test_data_count_TestDataCount_test_data_count.coverage" NAME="py.test for test_data_count.TestDataCount.test_data_count Coverage Results" MODIFIED="1542880670556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_data_count" />
+    <SUITE FILE_PATH="coverage/pytest_interface$py_test_for_test_data_count_TestDataCount_test_data_count.coverage" NAME="py.test for test_data_count.TestDataCount.test_data_count Coverage Results" MODIFIED="1543203735004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_data_count" />
     <SUITE FILE_PATH="coverage/pytest_hbh$py_test_for_test_free_ticket_TestFreeTicket_test_test_free_ticket_index.coverage" NAME="py.test for test_free_ticket.TestFreeTicket.test_test_free_ticket_index Coverage Results" MODIFIED="1542607442155" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_online" />
     <SUITE FILE_PATH="coverage/pytest_hbh$py_test_in_test_login_dmp_py__1_.coverage" NAME="py.test in test_login_dmp.py (1) Coverage Results" MODIFIED="1540641220848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_dmp" />
     <SUITE FILE_PATH="coverage/pytest_hbh$py_test_for_test_login_dmp_TestLogin_test_login_session.coverage" NAME="py.test for test_login_dmp.TestLogin.test_login_session Coverage Results" MODIFIED="1540804794163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_suites/test_dmp" />
@@ -94,8 +98,8 @@
       <file leaf-file-name="conftest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conftest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="255">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#50#79#0" expanded="true" />
               </folding>
@@ -116,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/apis/data_mock_api.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding>
                 <element signature="e#51#81#0" expanded="true" />
               </folding>
@@ -127,8 +131,17 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+            <state relative-caret-position="400">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_count.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/data_count/data_count.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -136,8 +149,8 @@
       <file leaf-file-name="test_data_count.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+            <state relative-caret-position="-25">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -247,6 +260,7 @@
         <option value="$PROJECT_DIR$/apis/data_mock_api.py" />
         <option value="$PROJECT_DIR$/conftest.py" />
         <option value="$PROJECT_DIR$/common/api.py" />
+        <option value="$PROJECT_DIR$/data/data_count/data_count.py" />
         <option value="$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
@@ -284,6 +298,17 @@
               <item name="pytest_interface" type="b2602c69:ProjectViewProjectNode" />
               <item name="pytest_interface" type="462c0819:PsiDirectoryNode" />
               <item name="apis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pytest_interface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pytest_interface" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="pytest_interface" type="b2602c69:ProjectViewProjectNode" />
+              <item name="pytest_interface" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="data_count" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="pytest_interface" type="b2602c69:ProjectViewProjectNode" />
@@ -449,12 +474,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.22 at 17h 46m 54s.xml">
-      <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.22 at 17h 47m 29s.xml">
-      <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
-    </history-entry>
     <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.22 at 17h 49m 37s.xml">
       <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
     </history-entry>
@@ -479,21 +498,28 @@
     <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.22 at 17h 57m 52s.xml">
       <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
     </history-entry>
+    <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.26 at 11h 41m 44s.xml">
+      <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_for_test_data_count_TestDataCount_test_data_count - 2018.11.26 at 11h 42m 16s.xml">
+      <configuration name="py.test for test_data_count.TestDataCount.test_data_count" configurationId="tests" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5229211" side_tool="true" visible="true" weight="0.42202836" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.52398723" side_tool="true" visible="true" weight="0.3653217" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6423241" weight="0.42202836" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.47707888" weight="0.3653217" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29690832" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64179105" weight="0.42202836" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4760128" visible="true" weight="0.3653217" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29690832" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4968017" weight="0.3293348" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -504,7 +530,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49733475" weight="0.3293348" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +544,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data/building_data_case.py" />
     <entry file="file://$PROJECT_DIR$/data/contract_data_case.py" />
     <entry file="file://$PROJECT_DIR$/assets/style.css" />
     <entry file="file://$PROJECT_DIR$/apis/hunbohuiCRM.py" />
@@ -625,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/conftest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="e#50#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -645,27 +659,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apis/data_mock_api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
             <element signature="e#51#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_count/data_count.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_suites/test_data_count/test_data_count.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-25">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conftest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#50#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        <state relative-caret-position="400">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
         </state>
       </provider>
     </entry>

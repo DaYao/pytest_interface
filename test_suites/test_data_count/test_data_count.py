@@ -8,7 +8,7 @@ class TestDataCount(object):
 
     def test_data_count(self):
         data_mock = DataMockApi()
-        res = data_mock.data_count_register(username="testlvjj1",remarks="测试123")
+        res = data_mock.data_count_register(username="testlvjj1", remarks="测试123")
         res_json = res.json
         assert res_json["code"] == 0
         usertoken = res_json["msg"]["usertoken"]
