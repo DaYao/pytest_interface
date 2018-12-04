@@ -22,6 +22,7 @@ class DataMockApi(object):
         :param remarks: 备注
         :return:
         """
+
         json = {
             "operation": "register",
             "username": username,

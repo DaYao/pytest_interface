@@ -1,4 +1,5 @@
 {
   "test_data_count.py": true,
-  "test_data_count.py::TestDataCount": true
+  "test_data_count.py::TestDataCount": true,
+  "test_data_count.py::TestDataCount::()::test_data_count": true
 }
