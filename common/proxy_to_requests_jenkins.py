@@ -58,8 +58,6 @@ class ProxyToPytest(object):
                 params = params + '    "{}": "{}",\n'.format(params_k[j], params_v[j])
             params = params[:-2]
             self.params = yaml.load("{\n" + params + "\n }")
-            print(type(params))
-            print(params)
             return ("params = {\n" + params + "\n}", list(self.params.keys()))
         else:
             return self.params, []
@@ -148,9 +146,9 @@ Connection: keep-alive"""
     method = proxy_to_pytest.get_method()
     headers = proxy_to_pytest.get_headers()
     url = proxy_to_pytest.get_url()
-    print(proxy_to_pytest.headers)
+    # print(proxy_to_pytest.headers)
     host = proxy_to_pytest.headers['Host']
-    print('host=', host)
+    # print('host=', host)
 
     inter_name = url.replace("/", "_")[1:]
     params = proxy_to_pytest.get_params()[0]
@@ -174,7 +172,7 @@ Connection: keep-alive"""
     # print(inter_name)
     # print(list_to_input(params_params))
     print("\n")
-    print("--------------------生成API--------------------")
+    print("--------------------您的requests代码--------------------")
     inter_params = ''
     if params:
         inter_params = inter_params + params_params_str
@@ -202,36 +200,36 @@ Connection: keep-alive"""
 
 
     # print("\n")
-    # print("--------------------生成DATA--------------------")
-    #
-    # # 生成data
-    # DATA = {}
-    # if params:
-    #     DATA.update(proxy_to_pytest.params)
-    # if body:
-    #     if proxy_to_pytest.data:
-    #         DATA.update(proxy_to_pytest.data)
-    #     if proxy_to_pytest.json:
-    #         DATA.update(proxy_to_pytest.json)
-    # DATA = urllib.parse.unquote(json.dumps(DATA, indent=4))
-    # DATA = "def " + inter_name + "(self):\n    return [    \n        " + DATA.replace('\n', '\n        ') + '\n    ]'
-    # DATA = DATA.encode('latin-1').decode('unicode_escape')
-    #
-    # print(DATA)
-    #
-    # print("\n")
-    # print("--------------------生成CASE--------------------")
-    # # 生成case
-    # case_list = []
-    # CASE = ''
-    # if params_params:
-    #     case_list = case_list + params_params
-    # if body_params:
-    #     case_list = case_list + body_params
-    # for i in case_list:
-    #     CASE = CASE + '{}=data["{}"], '.format(i, i)
-    # CASE = "res = CLASS.{}({})".format(inter_name, CASE[:-2])
-    # print(CASE)
+    print("--------------------您的请求数据--------------------")
+
+    # 生成data
+    DATA = {}
+    if params:
+        DATA.update(proxy_to_pytest.params)
+    if body:
+        if proxy_to_pytest.data:
+            DATA.update(proxy_to_pytest.data)
+        if proxy_to_pytest.json:
+            DATA.update(proxy_to_pytest.json)
+    DATA = urllib.parse.unquote(json.dumps(DATA, indent=4))
+    DATA = "def " + inter_name + "(self):\n    return [    \n        " + DATA.replace('\n', '\n        ') + '\n    ]'
+    DATA = DATA.encode('latin-1').decode('unicode_escape')
+
+    print(DATA)
+
+    print("\n")
+    print("--------------------生成CASE--------------------")
+    # 生成case
+    case_list = []
+    CASE = ''
+    if params_params:
+        case_list = case_list + params_params
+    if body_params:
+        case_list = case_list + body_params
+    for i in case_list:
+        CASE = CASE + '{}=data["{}"], '.format(i, i)
+    CASE = "res = CLASS.{}({})".format(inter_name, CASE[:-2])
+    print(CASE)
 
 
 
