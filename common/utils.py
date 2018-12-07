@@ -71,13 +71,11 @@ class DB(object):
         db.close()
         return res
 
-
-
-
 def get_base64(s):
     bytesString = s.encode(encoding="utf-8")
     encodestr = base64.b64encode(bytesString)
     return encodestr
+
 
 
 
