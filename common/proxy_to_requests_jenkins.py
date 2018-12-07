@@ -124,6 +124,8 @@ class ProxyToPytest(object):
                 self.json = yaml.load(body)
                 self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
                 return "json = " + self.json_str, list(self.json.keys())
+            else:
+                return '', []
         else:
             return '', []
 
@@ -163,15 +165,6 @@ registerLocation=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&nameCn=%E6%B5%8B%E8%AF%95%
     body_params_str = ""
     for i in body_params:
         body_params_str = body_params_str + ", " + i
-    # print(body_params_str)
-    # print("method = ", method)
-    # print(headers)
-    # print("url = ", url)
-    # print(params)
-    # print(body)
-    # print(body_params)
-    # print(inter_name)
-    # print(list_to_input(params_params))
     print("\n")
     print("--------------------您的requests代码--------------------")
     inter_params = ''
@@ -199,10 +192,8 @@ registerLocation=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&nameCn=%E6%B5%8B%E8%AF%95%
     API = API + _return
     print(API)
 
-
     print("\n\n\n")
-    print("--------------------您的请求数据--------------------")
-
+    print("--------------------您的请求数据整合--------------------")
     # 生成data
     DATA = {}
     if params:
