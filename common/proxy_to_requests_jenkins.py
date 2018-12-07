@@ -58,7 +58,7 @@ class ProxyToPytest(object):
                 params = params + '    "{}": "{}",\n'.format(params_k[j], params_v[j])
             params = params[:-2]
             self.params = yaml.load("{\n" + params + "\n }")
-            return ("params = {\n" + params + "\n}", list(self.params.keys()))
+            return ("params = {\n" + params + "\n    }", list(self.params.keys()))
         else:
             return self.params, []
 
@@ -119,7 +119,7 @@ class ProxyToPytest(object):
                         data = data + '"{}": "{}",\n'.format(body_k[j], body_v[j])
                     self.data = yaml.load("{\n" + data[:-2] + "\n}")
                     self.data_str = urllib.parse.unquote(json.dumps(self.data, indent=4))
-                return ("data = " + self.data_str + " \n    }"), body_k
+                return ("data = " + self.data_str), body_k
             elif "json" in headers["Content-Type"]:
                 self.json = yaml.load(body)
                 self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
@@ -129,16 +129,17 @@ class ProxyToPytest(object):
 
 
 if __name__ == '__main__':
-    str_path = """GET /taskengine/task/list?filterTaskId=&page=1&size=20 HTTP/1.1
+    str_path = """POST /base/brand/save?a=1&b=2 HTTP/1.1
 Host: bops.test.tthunbohui.com
-Accept: */*
-X-Requested-With: XMLHttpRequest
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36
-Referer: http://bops.test.tthunbohui.com/taskengine/task/list-page
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
 Accept-Encoding: gzip, deflate
-Accept-Language: zh-CN,zh;q=0.9
-Cookie: jid=6f1d38c68b84cf788c031ed49334ae56; ciid=0; PHPSESSID=ST-2393-De3sNSSOpfL5vfuIFCkb-cas01exampleorg; SESSION=3bc5e6ec-27af-4d36-b944-b457fabec1b6
-Connection: keep-alive"""
+Accept: */*
+Cookie: SESSION=83e6bbaa-82d5-4052-b62b-e5ae6a9c2941
+Content-Length: 747
+Content-Type: application/x-www-form-urlencoded
+Connection: keep-alive
+
+registerLocation=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&nameCn=%E6%B5%8B%E8%AF%95%E5%93%81%E7%89%8C%E5%90%8D%E7%A7%B0100&nameEn=test_name100&nameAlias=%E6%B5%8B%E8%AF%95%E5%93%81%E7%89%8C%E5%88%AB%E5%90%8D100&intro=%E6%B5%8B%E8%AF%95%E5%93%81%E7%89%8C%E4%BB%8B%E7%BB%8D100&registerIndustry=%E5%88%B6%E9%80%A0%E4%B8%9A&trademarkNumber=660123&trademarkApplicant=%E6%B5%8B%E8%AF%95%E7%94%B3%E8%AF%B7%E4%BA%BA100&trademarkType=1&logo=https%3A%2F%2Fimg.tthunbohui.cn%2Fdmp%2Fh%2Fbrand%2F1540915200%2Fjh-img-orig-ga_1057445424459481088_794_605_206393.png&trademarkCertificate=https%3A%2F%2Fimg.tthunbohui.cn%2Fdmp%2Fh%2Fbrand%2F1540915200%2Fjh-img-orig-ga_1057445434530004992_626_377_104473.png&firstIndustryId=0&secondIndustryId=0&coverageIndustry=4-2273"""
     proxy_file = os.getenv('proxy_file', str_path)
 
 
