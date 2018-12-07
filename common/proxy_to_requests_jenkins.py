@@ -217,19 +217,19 @@ Connection: keep-alive"""
 
     print(DATA)
 
-    print("\n")
-    print("--------------------生成CASE--------------------")
-    # 生成case
-    case_list = []
-    CASE = ''
-    if params_params:
-        case_list = case_list + params_params
-    if body_params:
-        case_list = case_list + body_params
-    for i in case_list:
-        CASE = CASE + '{}=data["{}"], '.format(i, i)
-    CASE = "res = CLASS.{}({})".format(inter_name, CASE[:-2])
-    print(CASE)
+    # print("\n")
+    # print("--------------------生成CASE--------------------")
+    # # 生成case
+    # case_list = []
+    # CASE = ''
+    # if params_params:
+    #     case_list = case_list + params_params
+    # if body_params:
+    #     case_list = case_list + body_params
+    # for i in case_list:
+    #     CASE = CASE + '{}=data["{}"], '.format(i, i)
+    # CASE = "res = CLASS.{}({})".format(inter_name, CASE[:-2])
+    # print(CASE)
 
 
 
