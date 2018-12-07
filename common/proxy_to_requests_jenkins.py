@@ -58,7 +58,7 @@ class ProxyToPytest(object):
                 params = params + '    "{}": "{}",\n'.format(params_k[j], params_v[j])
             params = params[:-2]
             self.params = yaml.load("{\n" + params + "\n }")
-            return ("params = {\n" + params + "\n    }", list(self.params.keys()))
+            return ("params = {\n" + params + "\n}", list(self.params.keys()))
         else:
             return self.params, []
 
@@ -77,7 +77,7 @@ class ProxyToPytest(object):
         for j in range(0, len(headers_k) - 1):
             headers = headers + '        "{}": "{}",\n'.format(headers_k[j], headers_v[j])
         self.headers = yaml.load("{\n" + headers + "\n }")
-        return ("headers = {\n" + headers + "    }")
+        return ("headers = {\n" + headers + "}")
 
     def __get_headers(self):
         headers_k, headers_v = [], []
@@ -119,7 +119,7 @@ class ProxyToPytest(object):
                         data = data + '"{}": "{}",\n'.format(body_k[j], body_v[j])
                     self.data = yaml.load("{\n" + data[:-2] + "\n}")
                     self.data_str = urllib.parse.unquote(json.dumps(self.data, indent=4))
-                return ("data = " + self.data_str), body_k
+                return ("data = " + self.data_str ), body_k
             elif "json" in headers["Content-Type"]:
                 self.json = yaml.load(body)
                 self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
