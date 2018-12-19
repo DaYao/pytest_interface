@@ -103,27 +103,32 @@ class ProxyToPytest(object):
         body = self.strline[-1]
         # urldecode
         body = urllib.parse.unquote(body)
-        if method == 'post':
-            if "x-www-form-urlencoded" in headers["Content-Type"]:
-                # print("body = ", body)
-                body_k, body_v = [], []
-                data = ''
-                body_list = body.split('&')
-                self.data_str = ""
-                if body_list[0]:
-                    for i in body_list:
-                        body_k.append(i.split('=', 1)[0])
-                        body_v.append(i.split('=', 1)[1])
-                    for j in range(len(body_k)):
-                        data = data + '"{}": "{}",\n'.format(body_k[j], body_v[j])
-                    self.data = yaml.load("{\n" + data[:-2] + "\n}")
-                    self.data_str = urllib.parse.unquote(json.dumps(self.data, indent=4))
-                return ("data = " + self.data_str + " \n    }"), body_k
-            elif "json" in headers["Content-Type"]:
-                self.json = yaml.load(body)
-                self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
-                return "json = " + self.json_str, list(self.json.keys())
-        else:
+        try:
+            if method == 'post':
+                if "x-www-form-urlencoded" in headers["Content-Type"]:
+                    # print("body = ", body)
+                    body_k, body_v = [], []
+                    data = ''
+                    body_list = body.split('&')
+                    self.data_str = ""
+                    if body_list[0]:
+                        for i in body_list:
+                            body_k.append(i.split('=', 1)[0])
+                            body_v.append(i.split('=', 1)[1])
+                        for j in range(len(body_k)):
+                            data = data + '"{}": "{}",\n'.format(body_k[j], body_v[j])
+                        self.data = yaml.load("{\n" + data[:-2] + "\n}")
+                        self.data_str = urllib.parse.unquote(json.dumps(self.data, indent=4))
+                    return ("data = " + self.data_str + " \n    }"), body_k
+                elif "json" in headers["Content-Type"]:
+                    self.json = yaml.load(body)
+                    self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
+                    return "json = " + self.json_str, list(self.json.keys())
+                else:
+                    return '', []
+            else:
+                return '', []
+        except:
             return '', []
 
 
