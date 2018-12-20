@@ -3,8 +3,8 @@
 
 from apis.data_mock_api import DataMockApi
 
-class TestDataCount(object):
 
+class TestDataCount(object):
 
     def test_data_count(self):
         data_mock = DataMockApi()
