@@ -25,6 +25,23 @@ class ProxyToPytest(object):
         print(file_path)
         self.strline = file_path.split('\n')
         # print(self.strline)
+        line_no = 0
+        strlines = []
+        for strline in self.strline:
+            line_no = line_no + 1
+            strlines.append(strline)
+            if strline == '':
+                print(line_no)
+                break
+        body_line = ''
+        # print(self.strline[line_no:])
+        for line in self.strline[line_no:]:
+            body_line = body_line + line
+        # print(body_line)
+        strlines.append(body_line)
+        # print(strlines)
+        self.strline = strlines
+        # for line in strline[line_no:]
 
     def __get_method(self):
         self.method = re.search("^(.+?) ", self.strline[0]).group(1).lower()
@@ -68,8 +85,8 @@ class ProxyToPytest(object):
                 # 过滤headers部分字段
                 if self.strline[i].split(':', 1)[0] in ["Host", "Connection", "Accept-Encoding", "Accept", "Cookie", "Content-Length"]:
                     continue
-                headers_k.append(self.strline[i].split(':',1)[0])
-                headers_v.append(self.strline[i].split(':',1)[1].split('\n',1)[0])
+                headers_k.append(self.strline[i].split(':',1)[0].replace(" ",""))
+                headers_v.append(self.strline[i].split(':',1)[1].split('\n',1)[0].replace(" ",""))
             except:
                 pass
         headers = ""
@@ -85,8 +102,8 @@ class ProxyToPytest(object):
                 # 过滤headers部分字段
                 if self.strline[i].split(':', 1)[0] in ["Host", "Connection", "Accept-Encoding", "Accept", "Cookie", "Content-Length"]:
                     continue
-                headers_k.append(self.strline[i].split(':',1)[0])
-                headers_v.append(self.strline[i].split(':',1)[1].split('\n',1)[0])
+                headers_k.append(self.strline[i].split(':',1)[0].replace(" ",""))
+                headers_v.append(self.strline[i].split(':',1)[1].split('\n',1)[0].replace(" ",""))
             except:
                 pass
         headers = ""
@@ -133,21 +150,49 @@ class ProxyToPytest(object):
 
 
 if __name__ == '__main__':
-    str_path = """POST /v1/sms/task/create HTTP/1.1
-Host: mdp.test.zghbh.com
-Content-Length: 252
-Accept: */*
-Origin: http://mdp.test.zghbh.com
-X-Requested-With: XMLHttpRequest
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36
+    str_path = """POST /familybase/addfamily HTTP/1.1
+Host: 172.16.204.55:8143
+Content-Length: 678
+accept: */*
+Origin: http://172.16.204.55:8143
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
 Content-Type: application/json
-Referer: http://mdp.test.zghbh.com/smsSubTaskEdit.html
+Referer: http://172.16.204.55:8143/swagger-ui.html
 Accept-Encoding: gzip, deflate
-Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
-Cookie: OUTFOX_SEARCH_USER_ID_NCOO=50304196.89615622
+Accept-Language: zh-CN,zh;q=0.9
 Connection: keep-alive
 
-{"city":"杭州","exhibition":"婚芭莎","planCount":3,"sendTime":"2018-12-06 11:10:05","sendType":1,"taskInfo":"测试任务","taskOriginal":"15157163734,18958033079,13067958991","title":"吕俊杰测试任务","type":1,"sendTemplate":"测试短信"}"""
+{
+  "coupleDTO": {
+    "birthday": "1990-01-01",
+    "familyUserId": 3,
+    "gender": 1,
+    "idcard": 512501197506045175,
+    "mobile": 15912344322,
+    "passport": "B17672344",
+    "realName": "张三444"
+  },
+  "familyBaseDTO": {
+    "address": "世纪大厦100楼",
+    "cityCode": 130100,
+    "coupleUserId": 2,
+    "districtCode": 130102,
+    "masterUserId": 1,
+    "provinceCode": 130000,
+    "weddingAnniversary": 20181010,
+    "weddingDate": "2018-10-10"
+  },
+  "masterDTO": {
+    "birthday": "1990-01-01",
+    "familyUserId":3,
+    "gender": 2,
+    "idcard": 512501197203035172,
+    "mobile": 15912344321,
+    "passport": "B17672342",
+    "realName": "张三555"
+  }
+}
+"""
     proxy_file = os.getenv('proxy_file', str_path)
 
 
@@ -233,9 +278,3 @@ Connection: keep-alive
         CASE = CASE + '{}=data["{}"], '.format(i, i)
     CASE = "res = CLASS.{}({})".format(inter_name, CASE[:-2])
     print(CASE)
-
-
-
-
-
-

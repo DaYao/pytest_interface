@@ -188,7 +188,7 @@ registerLocation=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&nameCn=%E6%B5%8B%E8%AF%95%
         API = API + body + "\n"
         _return = _return + '{}={}, '.format(body[0:4], body[0:4])
     API = API.encode('latin-1').decode('unicode_escape')
-    _return = 'requests.{}(url="http://{}", {})'.format(method, host+url, _return[:-2])
+    _return = 'res = requests.{}(url="http://{}", {})\n'.format(method, host+url, _return[:-2]) + 'print(res.content)'
     API = API + _return
     print(API)
 
