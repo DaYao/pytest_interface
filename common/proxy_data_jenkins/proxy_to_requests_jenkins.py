@@ -6,7 +6,6 @@ import re
 import yaml
 import urllib.parse
 import os
-from jinja2 import Template
 
 
 def list_to_input(list=[]):
@@ -24,7 +23,25 @@ class ProxyToPytest(object):
         #     print(self.strline)
         print(file_path)
         self.strline = file_path.split('\n')
-        # print(self.strline)
+
+        # 处理body之中json换行情况
+        line_no = 0
+        strlines = []
+        for strline in self.strline:
+            line_no = line_no + 1
+            strlines.append(strline)
+            if strline == '':
+                # print(line_no)
+                break
+        body_line = ''
+        for line in self.strline[line_no:]:
+            body_line = body_line + line
+        strlines.append(body_line)
+        self.strline = strlines
+
+
+
+
 
     def __get_method(self):
         self.method = re.search("^(.+?) ", self.strline[0]).group(1).lower()
@@ -69,8 +86,8 @@ class ProxyToPytest(object):
                 # 过滤headers部分字段
                 if self.strline[i].split(':', 1)[0] in ["Connection", "Accept-Encoding", "Accept", "Content-Length"]:
                     continue
-                headers_k.append(self.strline[i].split(':', 1)[0].replace(" ", ""))
-                headers_v.append(self.strline[i].split(':', 1)[1].split('\n', 1)[0].replace(" ", ""))
+                headers_k.append(self.strline[i].split(':',1)[0].replace(" ","").lower())
+                headers_v.append(self.strline[i].split(':',1)[1].split('\n',1)[0].replace(" ",""))
             except:
                 pass
         headers = ""
@@ -86,7 +103,7 @@ class ProxyToPytest(object):
                 # 过滤headers部分字段
                 if self.strline[i].split(':', 1)[0] in ["Connection", "Accept-Encoding", "Accept", "Content-Length"]:
                     continue
-                headers_k.append(self.strline[i].split(':', 1)[0])
+                headers_k.append(self.strline[i].split(':', 1)[0].lower())
                 headers_v.append(self.strline[i].split(':', 1)[1].split('\n',1)[0])
             except:
                 pass
@@ -102,10 +119,10 @@ class ProxyToPytest(object):
         method = self.__get_method()
         headers = self.__get_headers()
         body = self.strline[-1]
-        # urldecode
-        body = urllib.parse.unquote(body)
-        if method == 'post':
-            if "x-www-form-urlencoded" in headers["Content-Type"]:
+        body = urllib.parse.unquote(body)  # urldecode
+
+        if method == 'post' and "content-type" in headers.keys():
+            if "x-www-form-urlencoded" in headers["content-type"]:
                 # print("body = ", body)
                 body_k, body_v = [], []
                 data = ''
@@ -120,7 +137,7 @@ class ProxyToPytest(object):
                     self.data = yaml.load("{\n" + data[:-2] + "\n}")
                     self.data_str = urllib.parse.unquote(json.dumps(self.data, indent=4))
                 return ("data = " + self.data_str), body_k
-            elif "json" in headers["Content-Type"]:
+            elif "json" in headers["content-type"]:
                 self.json = yaml.load(body)
                 self.json_str = urllib.parse.unquote(json.dumps(self.json, indent=4))
                 return "json = " + self.json_str, list(self.json.keys())
@@ -150,7 +167,7 @@ registerLocation=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&nameCn=%E6%B5%8B%E8%AF%95%
     headers = proxy_to_pytest.get_headers()
     url = proxy_to_pytest.get_url()
     # print(proxy_to_pytest.headers)
-    host = proxy_to_pytest.headers['Host']
+    host = proxy_to_pytest.headers['host']
     # print('host=', host)
 
     inter_name = url.replace("/", "_")[1:]

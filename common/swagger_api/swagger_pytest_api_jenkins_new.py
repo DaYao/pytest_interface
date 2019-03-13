@@ -30,7 +30,6 @@ class Swagger(object):
             self.raw_data = requests.get(swagger_url).json()
         except:
             try:
-                # 获取链接中的host
                 host = urlparse(swagger_url).netloc
                 raw_json = requests.get('http://{}/swagger-resources'.format(host)).json()[0]
                 url = raw_json['url']
